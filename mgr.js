@@ -19,7 +19,7 @@ define(['managerAPI',
     let MascLabels = [];
     let FemLabels = [];
 
-    if (raceSet == 'a') {
+    if (GenSet == 'a') {
         MascLabels.push('Men');
         FemLabels.push('Women');
     } else {
