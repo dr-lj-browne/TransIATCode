@@ -42,7 +42,8 @@ define(['managerAPI',
         ]), 
         OthWords : API.shuffle([
             'Others', 'Another', 'Those people',
-			'Other people', 'The other', 'Other person'
+			'Other people', 'The other', 'Other person',
+			'That person', 'Someone else'
         ])
     });
 
