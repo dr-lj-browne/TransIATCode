@@ -44,6 +44,15 @@ define(['managerAPI',
             'Others', 'Another', 'Those people',
 			'Other people', 'The other', 'Other person',
 			'That person', 'Someone else'
+        ]),
+			
+		MascWords : API.shuffle([
+            'Man', 'Masculine', 'He',
+			'Him', 'His', 'Guy'
+        ]),
+		FemWords : API.shuffle([
+            'Woman', 'Feminine', 'She',
+			'Her', 'Hers', 'Lady'
         ])
     });
 
