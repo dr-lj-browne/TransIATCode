@@ -9,52 +9,40 @@ define(['managerAPI',
 
 	var API    = new Manager();
 	//const subid = Date.now().toString(16)+Math.floor(Math.random()*10000).toString(16);
-	init_data_pipe(API, 'zpjKaPesdEOI',  {file_type:'csv'});	
+	init_data_pipe(API, 'yyhbECytn0gD',  {file_type:'csv'});	
 
     API.setName('mgr');
     API.addSettings('skip',true);
 
     //Randomly select which of two sets of category labels to use.
-    let raceSet = API.shuffle(['a','b'])[0];
-    let blackLabels = [];
-    let whiteLabels = [];
+    let GenSet = API.shuffle(['a','b'])[0];
+    let MascLabels = [];
+    let FemLabels = [];
 
     if (raceSet == 'a') {
-        blackLabels.push('African Americans');
-        whiteLabels.push('European Americans');
+        MascLabels.push('Men');
+        FemLabels.push('Women');
     } else {
-        blackLabels.push('Black people');
-        whiteLabels.push('White people');
+        MascLabels.push('Men');
+        FemLabels.push('Women');
     }
 
     API.addGlobal({
-        raceiat:{},
+        Geniat:{},
         //YBYB: change when copying back to the correct folder
         baseURL: './images/',
-        raceSet:raceSet,
-        blackLabels:blackLabels,
-        whiteLabels:whiteLabels,
+        GenSet:GenSet,
+        MascLabels:MascLabels,
+        FemLabels:FemLabels,
         //Select randomly what attribute words to see. 
         //Based on Axt, Feng, & Bar-Anan (2021).
-        posWords : API.shuffle([
-            'Love', 'Cheer', 'Friend', 'Pleasure',
-            'Adore', 'Cheerful', 'Friendship', 'Joyful', 
-            'Smiling','Cherish', 'Excellent', 'Glad', 
-            'Joyous', 'Spectacular', 'Appealing', 'Delight', 
-            'Excitement', 'Laughing', 'Attractive','Delightful', 
-            'Fabulous', 'Glorious', 'Pleasing', 'Beautiful', 
-            'Fantastic', 'Happy', 'Lovely', 'Terrific', 
-            'Celebrate', 'Enjoy', 'Magnificent', 'Triumph'
+        SlfWords : API.shuffle([
+            'Me', 'Myself', 'I', 'Mine',
+            'Self', 'Our', 'Us', 'We'
         ]), 
-        negWords : API.shuffle([
-            'Abuse', 'Grief', 'Poison', 'Sadness', 
-            'Pain', 'Despise', 'Failure', 'Nasty', 
-            'Angry', 'Detest', 'Horrible', 'Negative', 
-            'Ugly', 'Dirty', 'Gross', 'Evil', 
-            'Rotten','Annoy', 'Disaster', 'Horrific',  
-            'Scorn', 'Awful', 'Disgust', 'Hate', 
-            'Humiliate', 'Selfish', 'Tragic', 'Bothersome', 
-            'Hatred', 'Hurtful', 'Sickening', 'Yucky'
+        OthWords : API.shuffle([
+            'Others', 'Another', 'Those people',
+			'Other people', 'The other', 'Other person'
         ])
     });
 
@@ -72,10 +60,10 @@ define(['managerAPI',
             header: 'Welcome'
         }],
 
-        raceiat_instructions: [{
+        Geniat_instructions: [{
             inherit: 'instructions',
-            name: 'raceiat_instructions',
-            templateUrl: 'raceiat_instructions.jst',
+            name: 'Geniat_instructions',
+            templateUrl: 'Geniat_instructions.jst',
             title: 'IAT Instructions',
             header: 'Implicit Association Test'
         }],
@@ -88,8 +76,8 @@ define(['managerAPI',
 
         raceiat: [{
             type: 'time',
-            name: 'raceiat',
-            scriptUrl: 'raceiat.js'
+            name: 'Geniat',
+            scriptUrl: 'Geniat.js'
         }],
 
         lastpage: [{
@@ -164,8 +152,8 @@ define(['managerAPI',
                 {
                     mixer: 'wrapper',
                     data: [
-                        {inherit: 'raceiat_instructions'},
-                        {inherit: 'raceiat'}
+                        {inherit: 'Geniat_instructions'},
+                        {inherit: 'Geniat'}
                     ]
                 }
             ]
