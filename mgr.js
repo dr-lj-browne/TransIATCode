@@ -84,7 +84,7 @@ define(['managerAPI',
             scriptUrl: 'explicits.js'
         }],
 
-        raceiat: [{
+        Geniat: [{
             type: 'time',
             name: 'Geniat',
             scriptUrl: 'Geniat.js'
