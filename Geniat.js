@@ -4,83 +4,83 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/iat10.
 
     return iatExtension({
         category1 : {
-            name : global.blackLabels, //Will appear in the data.
+            name : global.MascLabels, //Will appear in the data.
             title : {
-                media : {word : global.blackLabels}, //Name of the category presented in the task.
+                media : {word : global.MascLabels}, //Name of the category presented in the task.
                 css : {color:'#31940F','font-size':'1.8em'}, //Style of the category title.
                 height : 4 //Used to position the "Or" in the combined block.
             }, 
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {image: 'bm1_nc.jpg'},
-                {image: 'bm2_nc.jpg'},
-                {image: 'bm3_nc.jpg'},
-                {image: 'bf1_nc.jpg'},
-                {image: 'bf2_nc.jpg'},                 
-                {image: 'bf3_nc.jpg'}     
+                {word: 'Man'},
+                {word: 'Masculine'},
+                {word: 'He'},
+                {word: 'Him'},
+                {word: 'His'},                 
+                {word: 'Guy'}     
             ],
             //Stimulus css (style)
             stimulusCss : {color:'#31940F','font-size':'2.3em'}
         },    
         category2 : {
-            name : global.whiteLabels, //Will appear in the data.
+            name : global.FemLabels, //Will appear in the data.
             title : {
-                media : {word : global.whiteLabels}, //Name of the category presented in the task.
+                media : {word : global.FemLabels}, //Name of the category presented in the task.
                 css : {color:'#31940F','font-size':'1.8em'}, //Style of the category title.
                 height : 4 //Used to position the "Or" in the combined block.
             }, 
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {image: 'wm1_nc.jpg'},
-                {image: 'wm2_nc.jpg'},
-                {image: 'wm3_nc.jpg'},
-                {image: 'wf1_nc.jpg'},
-                {image: 'wf2_nc.jpg'},
-                {image: 'wf3_nc.jpg'}
+                {word: 'Woman'},
+                {word: 'Feminine'},
+                {word: 'She'},
+                {word: 'Her'},
+                {word: 'Hers'},
+                {word: 'Lady'}
             ],
             //Stimulus css (style)
             stimulusCss : {color:'#31940F','font-size':'2.3em'}
         },
         attribute1 : {
-            name : 'Bad words',
+            name : 'Others',
             title : {
-                media : {word : 'Bad words'},
+                media : {word : 'Other words'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {word: global.negWords[0]},
-                {word: global.negWords[1]},
-                {word: global.negWords[2]},
-                {word: global.negWords[3]},
-                {word: global.negWords[4]},
-                {word: global.negWords[5]},
-                {word: global.negWords[6]},
-                {word: global.negWords[7]}
+                {word: global.OthWords[0]},
+                {word: global.OthWords[1]},
+                {word: global.OthWords[2]},
+                {word: global.OthWords[3]},
+                {word: global.OthWords[4]},
+                {word: global.OthWords[5]},
+                {word: global.OthWords[6]},
+                {word: global.OthWords[7]}
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
         },
         attribute2 : {
-            name : 'Good words',
+            name : 'Self words',
             title : {
-                media : {word : 'Good words'},
+                media : {word : 'Self words'},
                 css : {color:'#0000FF','font-size':'1.8em'},
                 height : 4 //Used to position the "Or" in the combined block.
             },
             stimulusMedia : [ //Stimuli content as PIP's media objects
-                {word: global.posWords[0]},
-                {word: global.posWords[1]},
-                {word: global.posWords[2]},
-                {word: global.posWords[3]},
-                {word: global.posWords[4]},
-                {word: global.posWords[5]},
-                {word: global.posWords[6]},
-                {word: global.posWords[7]}
+                {word: global.SlfWords[0]},
+                {word: global.SlfWords[1]},
+                {word: global.SlfWords[2]},
+                {word: global.SlfWords[3]},
+                {word: global.SlfWords[4]},
+                {word: global.SlfWords[5]},
+                {word: global.SlfWords[6]},
+                {word: global.SlfWords[7]}
             ],
             //Stimulus css
             stimulusCss : {color:'#0000FF','font-size':'2.3em'}
         },
-        base_url : {//Where are your images at?
-            image : global.baseURL
+        base_url : {//Where are your words at?
+            word : global.baseURL
         },
         isTouch : global.$isTouch
     });
