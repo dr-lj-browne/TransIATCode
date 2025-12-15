@@ -45,17 +45,12 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 - Extremely warm', value:10},
-            {text:'9 - Very warm', value:9},
-            {text:'8 - Moderately warm', value:8},
-            {text:'7 - Somewhat warm', value:7},
-            {text:'6 - Slightly warm', value:6},
-            {text:'5 - Neither warm nor cold', value:5},
-            {text:'4 - Slightly cold', value:4},
-            {text:'3 - Somewhat cold', value:3},
-            {text:'2 - Moderately cold', value:2},
-            {text:'1 - Very cold', value:1},
-            {text:'0 - Extremely cold', value:0}
+
+            {text:'4 - Extremely', value:4},
+            {text:'3 - Very', value:3},
+            {text:'2 - Moderately', value:2},
+            {text:'1 - Somewhat', value:1},
+            {text:'0 - Not at all', value:0}
         ]
     });
 
@@ -78,18 +73,22 @@ define(['questAPI'], function(Quest){
         ]
     });
 	
-    API.addQuestionsSet('thermBlack',{
+    API.addQuestionsSet('thermMasc',{
         inherit : 'therm',
         name: 'Tblack_0to10',
-        stem: 'How warm or cold do you feel towards <b><%= global.MascLabels %></b>?'
+        stem: 'How <b>masculine</b> would you say your gender identity is?'
     });
 
-    API.addQuestionsSet('thermWhite',{
+    API.addQuestionsSet('thermFem',{
         inherit : 'therm',
         name: 'Twhite_0to10',
-        stem: 'How warm or cold do you feel towards <b><%= global.FemLabels %></b>?'
+        stem: 'How <b>feminine</b> would you say your gender identity is? %></b>?'
     });
-
+    API.addQuestionsSet('thermAndro',{
+        inherit : 'therm',
+        name: 'Twhite_0to10',
+        stem: 'How <b>androgynous or non-binary</b> would you say your gender identity is? %></b>?'
+    });
     API.addSequence([
         {
             mixer : 'random', 
@@ -100,11 +99,15 @@ define(['questAPI'], function(Quest){
                     data : [
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermBlack'}
+                            questions: {inherit:'thermMasc'}
                         },
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermWhite'}							
+                            questions: {inherit:'thermFem'}							
+                        }
+						{
+                            inherit:'basicPage', 
+                            questions: {inherit:'thermAndro'}							
                         }
                     ]
                 },
