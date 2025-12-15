@@ -75,18 +75,18 @@ define(['questAPI'], function(Quest){
 	
     API.addQuestionsSet('thermMasc',{
         inherit : 'therm',
-        name: 'Tblack_0to10',
+        name: 'thermMasc',
         stem: 'How <b>masculine</b> would you say your gender identity is?'
     });
 
     API.addQuestionsSet('thermFem',{
         inherit : 'therm',
-        name: 'Twhite_0to10',
+        name: 'thermFem',
         stem: 'How <b>feminine</b> would you say your gender identity is? %></b>?'
     });
     API.addQuestionsSet('thermAndro',{
         inherit : 'therm',
-        name: 'Twhite_0to10',
+        name: 'thermAndro',
         stem: 'How <b>androgynous or non-binary</b> would you say your gender identity is? %></b>?'
     });
     API.addSequence([
