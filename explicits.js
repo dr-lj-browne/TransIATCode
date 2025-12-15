@@ -45,17 +45,12 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 - Extremely warm', value:10},
-            {text:'9 - Very warm', value:9},
-            {text:'8 - Moderately warm', value:8},
-            {text:'7 - Somewhat warm', value:7},
-            {text:'6 - Slightly warm', value:6},
-            {text:'5 - Neither warm nor cold', value:5},
-            {text:'4 - Slightly cold', value:4},
-            {text:'3 - Somewhat cold', value:3},
-            {text:'2 - Moderately cold', value:2},
-            {text:'1 - Very cold', value:1},
-            {text:'0 - Extremely cold', value:0}
+
+            {text:'4 - Extremely', value:4},
+            {text:'3 - Very', value:3},
+            {text:'2 - Moderately', value:2},
+            {text:'1 - Slightly', value:1},
+            {text:'0 - Not at all', value:0}
         ]
     });
 
@@ -64,21 +59,7 @@ define(['questAPI'], function(Quest){
     /**
 	*Specific questions
 	*/	
-    API.addQuestionsSet('attributes7',{
-        inherit : 'basicSelect',
-        name: 'attributes7',
-        stem: 'Which statement best describes you?',
-        answers: [
-            {text:'I strongly prefer <%= global.FemLabels %> to <%= global.MascLabels %>.',value:7},
-            {text:'I moderately prefer <%= global.FemLabels %> to <%= global.MascLabels %>.',value:6},
-            {text:'I slightly prefer <%= global.FemLabels %> to <%= global.MascLabels %>.',value:5},
-            {text:'I like <%= global.FemLabels %> and <%= global.MascLabels %> equally.',value:4},
-            {text:'I slightly prefer <%= global.MascLabels %> to <%= global.FemLabels %>.',value:3},
-            {text:'I moderately prefer <%= global.MascLabels %> to <%= global.FemLabels %>.',value:2},
-            {text:'I strongly prefer <%= global.MascLabels %> to <%= global.FemLabels %>.',value:1}
-        ]
-    });
-	
+
     API.addQuestionsSet('thermMasc',{
         inherit : 'therm',
         name: 'thermMasc',
@@ -88,12 +69,12 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('thermFem',{
         inherit : 'therm',
         name: 'thermFem',
-        stem: 'How <b>feminine</b> would you say your gender identity is? %></b>?'
+        stem: 'How <b>feminine</b> would you say your gender identity is?'
     });
     API.addQuestionsSet('thermAndro',{
         inherit : 'therm',
         name: 'thermAndro',
-        stem: 'How <b>androgynous or non-binary</b> would you say your gender identity is? %></b>?'
+        stem: 'How <b>androgynous or non-binary</b> would you say your gender identity is?'
     });
     API.addSequence([
         {
