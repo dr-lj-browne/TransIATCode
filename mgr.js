@@ -86,7 +86,7 @@ define(['managerAPI',
 		  consent: [{
             type: 'quest',
             name: 'consent',
-            scriptUrl: 'Consent.js'
+            scriptUrl: 'Explicit.js'
         }],
 
         Geniat: [{
