@@ -97,7 +97,7 @@ define(['managerAPI',
             title: 'End',
             //Uncomment the following if you want to end the study here.
             //last:true, 
-            header: 'You have completed the IAT portion'
+            header: 'You have completed the study'
         }], 
         
         //Use if you want to redirect the participants elsewhere at the end of the study
@@ -153,8 +153,8 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
-		{
-			mixer:'random',
+        {
+            mixer:'random',
             data:[
                 {inherit: 'explicits'},
 
