@@ -36,11 +36,6 @@ define(['questAPI'], function(Quest){
         type: 'selectOne'
     });
 	
-    API.addQuestionsSet('basicDropdown',{
-        inherit :'basicQ',
-        type : 'dropdown',
-        autoSubmit:false
-    });
 	
     API.addQuestionsSet('yesno',{
         inherit: 'basicSelect',
@@ -58,18 +53,18 @@ define(['questAPI'], function(Quest){
 	*/	
 
     API.addQuestionsSet('conyn',{
-        inherit : 'therm',
+        inherit : 'yesno',
         name: 'conyn',
         stem: 'Do you consent to the research?'
     });
 
     API.addQuestionsSet('ageyn',{
-        inherit : 'therm',
+        inherit : 'yesno',
         name: 'ageyn',
         stem: 'Are you at least 18 years old?'
     });
     API.addQuestionsSet('usyn',{
-        inherit : 'therm',
+        inherit : 'yesno',
         name: 'usyn',
         stem: 'Do you currently live in the United States?'
     });
