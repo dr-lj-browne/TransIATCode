@@ -45,14 +45,20 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-
-            {text:'4 - Extremely', value:4},
-            {text:'3 - Very', value:3},
-            {text:'2 - Moderately', value:2},
-            {text:'1 - Somewhat', value:1},
-            {text:'0 - Not at all', value:0}
+            {text:'10 - Extremely warm', value:10},
+            {text:'9 - Very warm', value:9},
+            {text:'8 - Moderately warm', value:8},
+            {text:'7 - Somewhat warm', value:7},
+            {text:'6 - Slightly warm', value:6},
+            {text:'5 - Neither warm nor cold', value:5},
+            {text:'4 - Slightly cold', value:4},
+            {text:'3 - Somewhat cold', value:3},
+            {text:'2 - Moderately cold', value:2},
+            {text:'1 - Very cold', value:1},
+            {text:'0 - Extremely cold', value:0}
         ]
     });
+
 
 	
     /**
@@ -104,7 +110,7 @@ define(['questAPI'], function(Quest){
                         {
                             inherit:'basicPage', 
                             questions: {inherit:'thermFem'}							
-                        }
+                        },
 						{
                             inherit:'basicPage', 
                             questions: {inherit:'thermAndro'}							
