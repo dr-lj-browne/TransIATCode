@@ -22,8 +22,8 @@ define(['questAPI'], function(Quest){
         required : true, 		
         errorMsg: {
             required: isTouch 
-                ? 'Please select an answer'' 
-                : 'Please select an answer''
+                ? 'Please select an answer, or click \'Decline\'' 
+                : 'Please select an answer, or click \'Decline to Answer\''
         },
         autoSubmit:'true',
         numericValues:'true',
@@ -36,45 +36,45 @@ define(['questAPI'], function(Quest){
         type: 'selectOne'
     });
 	
+    API.addQuestionsSet('basicDropdown',{
+        inherit :'basicQ',
+        type : 'dropdown',
+        autoSubmit:false
+    });
+	
+    API.addQuestionsSet('therm',{
+        inherit: 'basicSelect',
+        answers: [
+
+            {text:'4 - Extremely', value:4},
+            {text:'3 - Very', value:3},
+            {text:'2 - Moderately', value:2},
+            {text:'1 - Slightly', value:1},
+            {text:'0 - Not at all', value:0}
+        ]
+    });
+
+
 	
     /**
 	*Specific questions
 	*/	
-    API.addQuestionsSet('cYN',{
-        inherit : 'basicSelect',
-        name: 'cYN',
-        stem: 'Do you agree to the research described above?',
-        answers: [
-            {text:'Yes.',value:1},
-            {text:'No.',value:0},
-        ]
+
+    API.addQuestionsSet('thermMasc',{
+        inherit : 'therm',
+        name: 'thermMasc',
+        stem: 'How <b>masculine</b> would you say your gender identity is?'
     });
-	    API.addQuestionsSet('AgeYN',{
-        inherit : 'basicSelect',
-        name: 'AgeYN',
-        stem: 'Are you at least 18 years old?',
-        answers: [
-            {text:'Yes.',value:1},
-            {text:'No.',value:0},
-        ]
+
+    API.addQuestionsSet('thermFem',{
+        inherit : 'therm',
+        name: 'thermFem',
+        stem: 'How <b>feminine</b> would you say your gender identity is?'
     });
-		    API.addQuestionsSet('TransYN',{
-        inherit : 'basicSelect',
-        name: 'TransYN',
-        stem: 'Do you identify as transgender (including binary and non-binary identities that fall under the transgender umbrella?',
-        answers: [
-            {text:'Yes.',value:1},
-            {text:'No.',value:0},
-        ]
-    });
-		    API.addQuestionsSet('usYN',{
-        inherit : 'basicSelect',
-        name: 'usYN',
-        stem: 'Do you currently live in the United States?',
-        answers: [
-            {text:'Yes.',value:1},
-            {text:'No.',value:0},
-        ]
+    API.addQuestionsSet('thermAndro',{
+        inherit : 'therm',
+        name: 'thermAndro',
+        stem: 'How <b>androgynous or non-binary</b> would you say your gender identity is?'
     });
     API.addSequence([
         {
@@ -84,21 +84,23 @@ define(['questAPI'], function(Quest){
                     mixer : 'random', 
                     wrapper:true, 
                     data : [
+                        {
+                            inherit:'basicPage', 
+                            questions: {inherit:'thermMasc'}
+                        },
+                        {
+                            inherit:'basicPage', 
+                            questions: {inherit:'thermFem'}							
+                        },
+						{
+                            inherit:'basicPage', 
+                            questions: {inherit:'thermAndro'}							
+                        }
+                    ]
+                },
                 {
                     inherit:'basicPage', 
-                    questions: {inherit:'cYN'}
-                },
-						                {
-                    inherit:'basicPage', 
-                    questions: {inherit:'AgeYN'}
-                },
-						                {
-                    inherit:'basicPage', 
-                    questions: {inherit:'TransYN'}
-                },
-						                {
-                    inherit:'basicPage', 
-                    questions: {inherit:'usYN'}
+                    questions: {inherit:'attributes7'}
                 }
             ]
         }
