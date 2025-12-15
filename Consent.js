@@ -42,15 +42,12 @@ define(['questAPI'], function(Quest){
         autoSubmit:false
     });
 	
-    API.addQuestionsSet('therm',{
+    API.addQuestionsSet('yesno',{
         inherit: 'basicSelect',
         answers: [
 
-            {text:'4 - Extremely', value:4},
-            {text:'3 - Very', value:3},
-            {text:'2 - Moderately', value:2},
-            {text:'1 - Slightly', value:1},
-            {text:'0 - Not at all', value:0}
+            {text:'Yes', value:1},
+            {text:'No', value:0}
         ]
     });
 
@@ -60,21 +57,21 @@ define(['questAPI'], function(Quest){
 	*Specific questions
 	*/	
 
-    API.addQuestionsSet('thermMasc',{
+    API.addQuestionsSet('conyn',{
         inherit : 'therm',
-        name: 'thermMasc',
-        stem: 'How <b>masculine</b> would you say your gender identity is?'
+        name: 'conyn',
+        stem: 'Do you consent to the research?'
     });
 
-    API.addQuestionsSet('thermFem',{
+    API.addQuestionsSet('ageyn',{
         inherit : 'therm',
-        name: 'thermFem',
-        stem: 'How <b>feminine</b> would you say your gender identity is?'
+        name: 'ageyn',
+        stem: 'Are you at least 18 years old?'
     });
-    API.addQuestionsSet('thermAndro',{
+    API.addQuestionsSet('usyn',{
         inherit : 'therm',
-        name: 'thermAndro',
-        stem: 'How <b>androgynous or non-binary</b> would you say your gender identity is?'
+        name: 'usyn',
+        stem: 'Do you currently live in the United States?'
     });
     API.addSequence([
         {
@@ -86,21 +83,17 @@ define(['questAPI'], function(Quest){
                     data : [
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermMasc'}
+                            questions: {inherit:'conyn'}
                         },
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermFem'}							
+                            questions: {inherit:'ageyn'}							
                         },
 						{
                             inherit:'basicPage', 
-                            questions: {inherit:'thermAndro'}							
+                            questions: {inherit:'usyn'}							
                         }
                     ]
-                },
-                {
-                    inherit:'basicPage', 
-                    questions: {inherit:'attributes7'}
                 }
             ]
         }
