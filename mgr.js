@@ -158,10 +158,12 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
+		{inherit: 'Consent'},
         {
             mixer:'random',
             data:[
                 {inherit: 'explicits'},
+				
 
                 // force the instructions to preceed the iat
                 {
