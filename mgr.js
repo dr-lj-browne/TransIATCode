@@ -158,8 +158,6 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
-		{data: [
-			{inherit: 'consent'}],
         {
             mixer:'random',
             data:[
