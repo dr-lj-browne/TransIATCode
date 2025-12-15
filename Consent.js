@@ -42,8 +42,35 @@ define(['questAPI'], function(Quest){
 	*/	
     API.addQuestionsSet('cYN',{
         inherit : 'basicSelect',
-        name: 'attributes7',
-        stem: 'Do you agree to the research described above',
+        name: 'cYN',
+        stem: 'Do you agree to the research described above?',
+        answers: [
+            {text:'Yes.',value:1},
+            {text:'No.',value:0},
+        ]
+    });
+	    API.addQuestionsSet('AgeYN',{
+        inherit : 'basicSelect',
+        name: 'AgeYN',
+        stem: 'Are you at least 18 years old?',
+        answers: [
+            {text:'Yes.',value:1},
+            {text:'No.',value:0},
+        ]
+    });
+		    API.addQuestionsSet('TransYN',{
+        inherit : 'basicSelect',
+        name: 'TransYN',
+        stem: 'Do you identify as transgender (including binary and non-binary identities that fall under the transgender umbrella?',
+        answers: [
+            {text:'Yes.',value:1},
+            {text:'No.',value:0},
+        ]
+    });
+		    API.addQuestionsSet('usYN',{
+        inherit : 'basicSelect',
+        name: 'usYN',
+        stem: 'Do you currently live in the United States?',
         answers: [
             {text:'Yes.',value:1},
             {text:'No.',value:0},
@@ -59,7 +86,19 @@ define(['questAPI'], function(Quest){
                     data : [
                 {
                     inherit:'basicPage', 
-                    questions: {inherit:'attributes7'}
+                    questions: {inherit:'cYN'}
+                }
+						                {
+                    inherit:'basicPage', 
+                    questions: {inherit:'AgeYN'}
+                }
+						                {
+                    inherit:'basicPage', 
+                    questions: {inherit:'TransYN'}
+                }
+						                {
+                    inherit:'basicPage', 
+                    questions: {inherit:'usYN'}
                 }
             ]
         }
