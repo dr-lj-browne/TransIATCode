@@ -68,6 +68,11 @@ define(['questAPI'], function(Quest){
         name: 'usyn',
         stem: 'Do you currently live in the United States?'
     });
+	    API.addQuestionsSet('transyn',{
+        inherit : 'yesno',
+        name: 'transyn',
+        stem: 'Are you transgender?'
+    });
     API.addSequence([
         {
             mixer : 'random', 
@@ -83,6 +88,10 @@ define(['questAPI'], function(Quest){
                         {
                             inherit:'basicPage', 
                             questions: {inherit:'ageyn'}							
+                        },
+						{
+                            inherit:'basicPage', 
+                            questions: {inherit:'transyn'}							
                         },
 						{
                             inherit:'basicPage', 
