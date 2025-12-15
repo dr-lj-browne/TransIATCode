@@ -87,15 +87,15 @@ define(['questAPI'], function(Quest){
                 {
                     inherit:'basicPage', 
                     questions: {inherit:'cYN'}
-                }
+                },
 						                {
                     inherit:'basicPage', 
                     questions: {inherit:'AgeYN'}
-                }
+                },
 						                {
                     inherit:'basicPage', 
                     questions: {inherit:'TransYN'}
-                }
+                },
 						                {
                     inherit:'basicPage', 
                     questions: {inherit:'usYN'}
