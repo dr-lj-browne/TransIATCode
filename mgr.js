@@ -83,9 +83,9 @@ define(['managerAPI',
             name: 'explicits',
             scriptUrl: 'explicits.js'
         }],
-		  Consent: [{
+		  consent: [{
             type: 'quest',
-            name: 'Consent',
+            name: 'consent',
             scriptUrl: 'Consent.js'
         }],
 
@@ -102,7 +102,7 @@ define(['managerAPI',
             title: 'End',
             //Uncomment the following if you want to end the study here.
             //last:true, 
-            header: 'You have completed the study'
+            header: 'You have completed the IAT portion'
         }], 
         
         //Use if you want to redirect the participants elsewhere at the end of the study
@@ -158,7 +158,8 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
-		{inherit: 'Consent'},
+		{data: [
+			{inherit: 'consent'}],
         {
             mixer:'random',
             data:[
