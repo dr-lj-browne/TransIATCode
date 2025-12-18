@@ -95,9 +95,8 @@ define(['managerAPI',
             scriptUrl: 'Geniat.js'
         }],
 		ineligible: [{
-            type: 'message',
-            name: 'lastpage',
-            templateUrl: 'Ineligible.jst',
+            type: 'quest',
+            templateUrl: 'Ineligible.js',
             title: 'End',
             //Uncomment the following if you want to end the study here.
             //last:true, 
