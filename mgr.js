@@ -172,10 +172,7 @@ define(['managerAPI',
 		{
 		mixer:'branch',
 			conditions:[
-				{compare: 'response.ageyn', to: 1}, 
-				{compare: 'response.conyn', to: 1},
-				{compare: 'response.usyn', to: 1},
-				{compare: 'response.transyn', to: 1}
+				{compare: 'response.ageyn', to: 1}
 			],
 			data:[
         {
