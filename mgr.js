@@ -172,7 +172,7 @@ define(['managerAPI',
 		{
 		mixer:'branch',
 			conditions:[
-				{compare: 'response.ageyn', to: 'yes'}],
+				{compare: 'response.ageyn', to: '1'}],
 			data:[
         {
             mixer:'random',
