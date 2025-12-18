@@ -94,13 +94,14 @@ define(['managerAPI',
             name: 'Geniat',
             scriptUrl: 'Geniat.js'
         }],
-		ineligible: [{
-            type: 'quest',
-            templateUrl: 'Ineligible.js',
+	 inelligible: [{
+            type: 'message',
+            name: 'lastpage',
+            templateUrl: 'ineligible.jst',
             title: 'End',
             //Uncomment the following if you want to end the study here.
             //last:true, 
-            header: 'You have completed the study'
+            header: 'You have completed the IAT portion of the study'
         }], 
 
         lastpage: [{
@@ -191,7 +192,7 @@ define(['managerAPI',
         }
 	],
 			elseData:[
-				{inherit: 'ineligible'}
+				{inherit: 'inelligible'}
 				]
 		},
 
