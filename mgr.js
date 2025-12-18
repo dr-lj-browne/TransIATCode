@@ -94,6 +94,15 @@ define(['managerAPI',
             name: 'Geniat',
             scriptUrl: 'Geniat.js'
         }],
+		ineligible: [{
+            type: 'message',
+            name: 'lastpage',
+            templateUrl: 'Ineligible.jst',
+            title: 'End',
+            //Uncomment the following if you want to end the study here.
+            //last:true, 
+            header: 'You have completed the study'
+        }], 
 
         lastpage: [{
             type: 'message',
@@ -102,7 +111,7 @@ define(['managerAPI',
             title: 'End',
             //Uncomment the following if you want to end the study here.
             //last:true, 
-            header: 'You have completed the study'
+            header: 'You have completed the IAT portion of the study'
         }], 
 
         
