@@ -27,7 +27,7 @@ define(['questAPI'], function(Quest){
         },
         autoSubmit:'true',
         numericValues:'true',
-        help: '<%= pagesMeta.number < 3 %>',
+        help: '<%= pagesMeta.number < 4 %>',
         helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
     });
 
