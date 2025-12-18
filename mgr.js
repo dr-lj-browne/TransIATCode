@@ -104,11 +104,6 @@ define(['managerAPI',
             //last:true, 
             header: 'You have completed the study'
         }], 
-		var cona = {
-   		 	compare: '1',
-    		to: '0',
-    		operator: 'equals'
-		},
 
         
         //Use if you want to redirect the participants elsewhere at the end of the study
@@ -167,7 +162,8 @@ define(['managerAPI',
 		{inherit: 'Consent'},
 		{
 		mixer:'branch',
-			conditions:[cona],
+			conditions:[
+				{compare: 'GenSet', to: 'a'}],
 			data:[
         {
             mixer:'random',
@@ -187,7 +183,7 @@ define(['managerAPI',
         }
 	],
 			elseData:[
-				{inherit: 'redirect'}
+				{inherit: 'Geniat'}
 				]
 		},
 
