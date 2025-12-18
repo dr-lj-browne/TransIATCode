@@ -192,7 +192,7 @@ define(['managerAPI',
         }
 	],
 			elseData:[
-				{inherit: 'Geniat'}
+				{inherit: 'ineligible'}
 				]
 		},
 
