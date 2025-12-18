@@ -163,7 +163,7 @@ define(['managerAPI',
 		{
 		mixer:'branch',
 			conditions:[
-				{compare: 'ageyn', to: '1'}],
+				{compare: 'response.ageyn', to: '1'}],
 			data:[
         {
             mixer:'random',
