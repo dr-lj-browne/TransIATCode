@@ -83,11 +83,7 @@ define(['managerAPI',
             name: 'explicits',
             scriptUrl: 'explicits.js'
         }],
-		Consent: [{
-            type: 'quest',
-            name: 'Consent',
-            scriptUrl: 'Consent.js'
-        }],
+
 
         Geniat: [{
             type: 'time',
@@ -168,7 +164,6 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
-		{inherit: 'Consent'},
         {
             mixer:'random',
             data:[
