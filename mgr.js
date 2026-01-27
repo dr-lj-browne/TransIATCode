@@ -169,11 +169,6 @@ define(['managerAPI',
         
         {inherit: 'intro'},
 		{inherit: 'Consent'},
-		{
-		mixer:'branch',
-			conditions:[
-				{compare: 'response.ageyn', to: '1'}],
-			data:[
         {
             mixer:'random',
             data:[
@@ -190,11 +185,8 @@ define(['managerAPI',
                 }
             ]
         }
-	],
-			elseData:[
-				{inherit: 'inelligible'}
-				]
-		},
+	
+		,
 
 		{inherit: 'uploading'},
         {inherit: 'lastpage'},
