@@ -66,7 +66,7 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Implicit Gender IAT',
+            title: 'Intro',
             header: 'Welcome'
         }],
 
