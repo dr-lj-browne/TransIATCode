@@ -97,8 +97,7 @@ define(['questAPI'], function(Quest){
                             questions: {inherit:'thermAndro'}							
                         }
                     ]
-                },
-            ]
+                }
         }
     ]);
 
