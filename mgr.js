@@ -164,8 +164,8 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
-        {
-            mixer:'wrapper',
+		{inherit: 'explicits'},
+		{mixer:'wrapper',
             data:[
                 {
                     mixer: 'wrapper',
@@ -174,7 +174,7 @@ define(['managerAPI',
                         {inherit: 'Geniat'}
                     ]
                 },
-				{inherit: 'explicits'}		
+				//{inherit: 'explicits'}		
                 // force the instructions to preceed the iat
             ]
         },
