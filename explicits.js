@@ -68,26 +68,26 @@ define(['questAPI'], function(Quest){
         name: 'attributes7',
         stem: 'Which statement best describes you?',
         answers: [
-            {text:'I strongly prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:7},
-            {text:'I moderately prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:6},
-            {text:'I slightly prefer <%= global.whiteLabels %> to <%= global.blackLabels %>.',value:5},
-            {text:'I like <%= global.whiteLabels %> and <%= global.blackLabels %> equally.',value:4},
-            {text:'I slightly prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:3},
-            {text:'I moderately prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:2},
-            {text:'I strongly prefer <%= global.blackLabels %> to <%= global.whiteLabels %>.',value:1}
+            {text:'I strongly prefer  to .',value:7},
+            {text:'I moderately prefer .',value:6},
+            {text:'I slightly prefer .',value:5},
+            {text:'I likeequally.',value:4},
+            {text:'I slightly prefer .',value:3},
+            {text:'I moderately prefer  to .',value:2},
+            {text:'I strongly prefer .',value:1}
         ]
     });
 	
     API.addQuestionsSet('thermBlack',{
         inherit : 'therm',
         name: 'Tblack_0to10',
-        stem: 'How warm or cold do you feel towards <b><%= global.blackLabels %></b>?'
+        stem: 'How warm or cold do you feel towards </b>?'
     });
 
     API.addQuestionsSet('thermWhite',{
         inherit : 'therm',
         name: 'Twhite_0to10',
-        stem: 'How warm or cold do you feel towards <b><%= global.whiteLabels %></b>?'
+        stem: 'How warm or cold do you feel towards </b>?'
     });
 
     API.addSequence([
