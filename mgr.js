@@ -66,7 +66,7 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Intro',
+            title: 'Branch added test',
             header: 'Welcome'
         }],
 
