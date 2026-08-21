@@ -66,7 +66,7 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Bug hunting 1',
+            title: 'Bug hunting 2',
             header: 'Welcome'
         }],
 		ineligible: [{
@@ -97,15 +97,6 @@ define(['managerAPI',
             name: 'Geniat',
             scriptUrl: 'Geniat.js'
         }],
-	 inelligible: [{
-            type: 'message',
-            name: 'lastpage',
-            templateUrl: 'ineligible.jst',
-            title: 'End',
-            //Uncomment the following if you want to end the study here.
-            //last:true, 
-            header: 'You have completed the IAT portion of the study'
-        }], 
         consent: [{
             type: 'quest',
             name: 'consent',
