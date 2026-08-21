@@ -45,7 +45,7 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 - variable change warm', value:10},
+            {text:'10 -remove attributes', value:10},
             {text:'9 - Very warm', value:9},
             {text:'8 - Moderately warm', value:8},
             {text:'7 - Somewhat warm', value:7},
@@ -63,20 +63,7 @@ define(['questAPI'], function(Quest){
     /**
 	*Specific questions
 	*/	
-    API.addQuestionsSet('attributes7',{
-        inherit : 'basicSelect',
-        name: 'attributes7',
-        stem: 'Which statement best describes you?',
-        answers: [
-            {text:'I strongly prefer changevariables  to .',value:7},
-            {text:'I moderately prefer   to   .',value:6},
-            {text:'I slightly prefer   to   .',value:5},
-            {text:'I like   and    equally.',value:4},
-            {text:'I slightly prefer    to  .',value:3},
-            {text:'I moderately prefer    to  .',value:2},
-            {text:'I strongly prefer    to  .',value:1}
-        ]
-    });
+
 	
     API.addQuestionsSet('thermMasc',{
         inherit : 'therm',
