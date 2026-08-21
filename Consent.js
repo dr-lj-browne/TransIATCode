@@ -73,6 +73,20 @@ define(['questAPI'], function(Quest){
         name: 'transyn',
         stem: 'Are you transgender?'
     });
+API.addSettings('hooks', {
+    endPage: function(page) {
+        let currentQuestions = page.questions;
+        if (currentQuestions) {
+            currentQuestions.forEach(function(q) {
+                if (q.name && q.response !== undefined) {
+                    let globalData = {};
+                    globalData[q.name] = q.response;
+                    API.addGlobal(globalData);
+                }
+            });
+        }
+    }
+});
     API.addSequence([
         {
             mixer : 'random', 
