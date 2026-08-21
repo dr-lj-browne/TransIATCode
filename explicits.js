@@ -45,7 +45,7 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 -remove attributes', value:10},
+            {text:'10 -andro', value:10},
             {text:'9 - Very warm', value:9},
             {text:'8 - Moderately warm', value:8},
             {text:'7 - Somewhat warm', value:7},
@@ -76,6 +76,12 @@ define(['questAPI'], function(Quest){
         name: 'Twhite_0to10',
         stem: 'How warm or cold do you feel towards <b> </b>?'
     });
+	
+	API.addQuestionsSet('thermAnd',{
+        inherit : 'therm',
+        name: 'Twhite_0to10',
+        stem: 'How warm or cold do you feel towards <b> </b>?'
+    });
 
     API.addSequence([
         {
@@ -97,7 +103,7 @@ define(['questAPI'], function(Quest){
                 },
                 {
                     inherit:'basicPage', 
-                    questions: {inherit:'thermFem'}
+                    questions: {inherit:'thermAnd'}
                 }
             ]
         }
