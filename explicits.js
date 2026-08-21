@@ -45,17 +45,17 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 -andro', value:10},
-            {text:'9 - Very warm', value:9},
-            {text:'8 - Moderately warm', value:8},
-            {text:'7 - Somewhat warm', value:7},
-            {text:'6 - Slightly warm', value:6},
-            {text:'5 - Neither warm nor cold', value:5},
-            {text:'4 - Slightly cold', value:4},
-            {text:'3 - Somewhat cold', value:3},
-            {text:'2 - Moderately cold', value:2},
-            {text:'1 - Very cold', value:1},
-            {text:'0 - Extremely cold', value:0}
+            {text:'10 -Qnames', value:10},
+            {text:'9', value:9},
+            {text:'8', value:8},
+            {text:'7 ', value:7},
+            {text:'6', value:6},
+            {text:'5', value:5},
+            {text:'4', value:4},
+            {text:'3', value:3},
+            {text:'2', value:2},
+            {text:'1', value:1},
+            {text:'0', value:0}
         ]
     });
 
@@ -68,19 +68,19 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('thermMasc',{
         inherit : 'therm',
         name: 'Tblack_0to10',
-        stem: 'How warm or cold do you feel towards <b>  </b>?'
+        stem: 'On a scale of 1-10 with 1 being the least and 10 being the most, how masculine would you say your gender identity is?'
     });
 
     API.addQuestionsSet('thermFem',{
         inherit : 'therm',
         name: 'Twhite_0to10',
-        stem: 'How warm or cold do you feel towards <b> </b>?'
+        stem: 'On a scale of 1-10 with 1 being the least and 10 being the most, how feminine would you say your gender identity is?'
     });
 	
 	API.addQuestionsSet('thermAnd',{
         inherit : 'therm',
         name: 'Twhite_0to10',
-        stem: 'How warm or cold do you feel towards <b> </b>?'
+        stem: 'On a scale of 1-10 with 1 being the least and 10 being the most, how androgynous would you say your gender identity is?'
     });
 
     API.addSequence([
