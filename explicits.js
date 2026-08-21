@@ -45,7 +45,7 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 - Extremely warm', value:10},
+            {text:'10 - variable change warm', value:10},
             {text:'9 - Very warm', value:9},
             {text:'8 - Moderately warm', value:8},
             {text:'7 - Somewhat warm', value:7},
@@ -68,7 +68,7 @@ define(['questAPI'], function(Quest){
         name: 'attributes7',
         stem: 'Which statement best describes you?',
         answers: [
-            {text:'I strongly prefer   to .',value:7},
+            {text:'I strongly prefer changevariables  to .',value:7},
             {text:'I moderately prefer   to   .',value:6},
             {text:'I slightly prefer   to   .',value:5},
             {text:'I like   and    equally.',value:4},
@@ -78,13 +78,13 @@ define(['questAPI'], function(Quest){
         ]
     });
 	
-    API.addQuestionsSet('thermBlack',{
+    API.addQuestionsSet('thermMasc',{
         inherit : 'therm',
         name: 'Tblack_0to10',
         stem: 'How warm or cold do you feel towards <b>  </b>?'
     });
 
-    API.addQuestionsSet('thermWhite',{
+    API.addQuestionsSet('thermFem',{
         inherit : 'therm',
         name: 'Twhite_0to10',
         stem: 'How warm or cold do you feel towards <b> </b>?'
@@ -100,17 +100,17 @@ define(['questAPI'], function(Quest){
                     data : [
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermBlack'}
+                            questions: {inherit:'thermMasc'}
                         },
                         {
                             inherit:'basicPage', 
-                            questions: {inherit:'thermWhite'}							
+                            questions: {inherit:'thermFem'}							
                         }
                     ]
                 },
                 {
                     inherit:'basicPage', 
-                    questions: {inherit:'thermWhite'}
+                    questions: {inherit:'thermFem'}
                 }
             ]
         }
