@@ -66,7 +66,7 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Ineligible page',
+            title: 'Bug hunting 1',
             header: 'Welcome'
         }],
 		ineligible: [{
