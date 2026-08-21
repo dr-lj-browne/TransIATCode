@@ -175,12 +175,14 @@ define(['managerAPI',
   // Dynamic Branching based on consent trial data
   {
     mixer: 'branch',
-    conditions: [
-      {
-        // Check if the participant gave consent / meets your criteria
-        // Adjust the variable name and value to match your consent response data
-        compare: 'global.conyn',
-        to: 1
+        conditions: [
+            function(element, currentSet) {
+                // Returns true ONLY if participant answered 'Yes' (value: 1) to all requirements
+                let g = API.getGlobal();
+                return g.conyn === 1 && 
+                       g.ageyn === 1 && 
+                       g.usyn === 1 && 
+                       g.transyn === 1;
       }
     ],
     // Executed if conditions are MET (Participant consented)
@@ -208,7 +210,7 @@ define(['managerAPI',
     ]
   }
 ]
-    ]);
+    );
 
     return API.script;
 });
