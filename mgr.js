@@ -170,7 +170,13 @@ define(['managerAPI',
         
         {inherit: 'intro'},
 		{inherit: 'consent'},
-		{mixer:'random',
+		{mixer: 'branch',
+		 	conditions:[    { 
+      		compare: 'global.conyn',
+      		to: 1
+    			}],
+		 	data:[
+			{mixer:'random',
             data:[
                 {
                     mixer: 'wrapper',
@@ -185,8 +191,11 @@ define(['managerAPI',
         },
 		{inherit: 'uploading'},
         {inherit: 'lastpage'},
-        {inherit: 'redirect'}
-    ]);
+        {inherit: 'redirect'}],
+			elseData: [
+				{inherit:'redirect'}
+			]
+    }]);
 
     return API.script;
 });
