@@ -168,49 +168,25 @@ define(['managerAPI',
         },
         
         
-[
-  { inherit: 'intro' },
-  { inherit: 'consent' },
-  
-  // Dynamic Branching based on consent trial data
-  {
-    mixer: 'branch',
-        conditions: [
-            function(element, currentSet) {
-                // Returns true ONLY if participant answered 'Yes' (value: 1) to all requirements
-                let g = API.getGlobal();
-                return g.conyn === 1 && 
-                       g.ageyn === 1 && 
-                       g.usyn === 1 && 
-                       g.transyn === 1;
-      }
-    ],
-    // Executed if conditions are MET (Participant consented)
-    data: [
-      {
-        mixer: 'random',
-        data: [
-          {
-            mixer: 'wrapper',
-            data: [
-              { inherit: 'Geniat_instructions' },
-              { inherit: 'Geniat' }
+        {inherit: 'intro'},
+		{inherit: 'consent'},
+		{mixer:'random',
+            data:[
+                {
+                    mixer: 'wrapper',
+                    data: [
+                        {inherit: 'Geniat_instructions'},
+                        {inherit: 'Geniat'}
+                    ]
+                },
+				{inherit: 'explicits'}		
+                // force the instructions to preceed the iat
             ]
-          },
-          { inherit: 'explicits' }
-        ]
-      },
-      { inherit: 'uploading' },
-      { inherit: 'lastpage' },
-      { inherit: 'redirect' }
-    ],
-    // Executed if conditions are NOT met (Participant declined/ineligible)
-    elseData: [
-      { inherit: 'redirect' }
-    ]
-  }
-]
-    );
+        },
+		{inherit: 'uploading'},
+        {inherit: 'lastpage'},
+        {inherit: 'redirect'}
+    ]);
 
     return API.script;
 });
