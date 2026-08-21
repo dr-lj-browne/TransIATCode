@@ -99,6 +99,11 @@ define(['managerAPI',
             //last:true, 
             header: 'You have completed the IAT portion of the study'
         }], 
+        consent: [{
+            type: 'quest',
+            name: 'consent',
+            scriptUrl: 'Consent.js'
+        }],
 
         lastpage: [{
             type: 'message',
@@ -164,6 +169,7 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
+		{inherit: 'consent'},
 		{mixer:'random',
             data:[
                 {
