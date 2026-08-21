@@ -45,7 +45,7 @@ define(['questAPI'], function(Quest){
     API.addQuestionsSet('therm',{
         inherit: 'basicSelect',
         answers: [
-            {text:'10 -Qnames', value:10},
+            {text:'10 ', value:10},
             {text:'9', value:9},
             {text:'8', value:8},
             {text:'7 ', value:7},
