@@ -168,24 +168,46 @@ define(['managerAPI',
         },
         
         
-        {inherit: 'intro'},
-		{inherit: 'consent'},
-		{mixer:'random',
-            data:[
-                {
-                    mixer: 'wrapper',
-                    data: [
-                        {inherit: 'Geniat_instructions'},
-                        {inherit: 'Geniat'}
-                    ]
-                },
-				{inherit: 'explicits'}		
-                // force the instructions to preceed the iat
+[
+  { inherit: 'intro' },
+  { inherit: 'consent' },
+  
+  // Dynamic Branching based on consent trial data
+  {
+    mixer: 'branch',
+    conditions: [
+      {
+        // Check if the participant gave consent / meets your criteria
+        // Adjust the variable name and value to match your consent response data
+        compare: 'global.conyn',
+        to: 1
+      }
+    ],
+    // Executed if conditions are MET (Participant consented)
+    data: [
+      {
+        mixer: 'random',
+        data: [
+          {
+            mixer: 'wrapper',
+            data: [
+              { inherit: 'Geniat_instructions' },
+              { inherit: 'Geniat' }
             ]
-        },
-		{inherit: 'uploading'},
-        {inherit: 'lastpage'},
-        {inherit: 'redirect'}
+          },
+          { inherit: 'explicits' }
+        ]
+      },
+      { inherit: 'uploading' },
+      { inherit: 'lastpage' },
+      { inherit: 'redirect' }
+    ],
+    // Executed if conditions are NOT met (Participant declined/ineligible)
+    elseData: [
+      { inherit: 'redirect' }
+    ]
+  }
+]
     ]);
 
     return API.script;
