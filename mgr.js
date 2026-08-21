@@ -66,8 +66,15 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Branch added test ammended',
+            title: 'Ineligible page',
             header: 'Welcome'
+        }],
+		ineligible: [{
+            inherit: 'instructions',
+            name: 'ineligible',
+            templateUrl: 'ineligible.jst',
+            title: 'Sorry',
+            header: 'Sorry'
         }],
 
         Geniat_instructions: [{
@@ -193,6 +200,7 @@ define(['managerAPI',
         {inherit: 'lastpage'},
         {inherit: 'redirect'}],
 			elseData: [
+				{inherit: 'ineligible'},
 				{inherit:'redirect'}
 			]
     }]);
