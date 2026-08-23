@@ -66,7 +66,7 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Bug hunting 2',
+            title: 'Bug hunting 3',
             header: 'Welcome'
         }],
 		ineligible: [{
@@ -191,7 +191,7 @@ define(['managerAPI',
         {inherit: 'lastpage'},
         {inherit: 'redirect'}],
 			elseData: [
-				{inherit: 'ineligible'},
+				{inherit: 'intro'},
 				{inherit:'redirect'}
 			]
     }]);
