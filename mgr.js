@@ -191,7 +191,7 @@ define(['managerAPI',
         {inherit: 'lastpage'},
         {inherit: 'redirect'}],
 			elseData: [
-				{inherit: 'intro'},
+				{inherit: 'ineligible'},
 				{inherit:'redirect'}
 			]
     }]);
