@@ -72,7 +72,7 @@ define(['managerAPI',
 		ineligible: [{
             inherit: 'instructions',
             name: 'ineligible',
-            templateUrl: 'ineligible.jst',
+            templateUrl: 'Ineligible.jst',
             title: 'Sorry',
             header: 'Sorry'
         }],
