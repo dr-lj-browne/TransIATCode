@@ -121,7 +121,22 @@ define(['managerAPI',
 		//This task waits until the data are sent to the server.
         uploading: uploading_task({header: 'just a moment', body:'Please wait, sending data... '})
     });
+define(['pipAPI'], function(pipAPI) {
+    var API = new pipAPI();
 
+    // Option A: 8-character random alphanumeric string (e.g., "K8J29X4M")
+    var randomID = Math.random().toString(36).substring(2, 10).toUpperCase();
+
+    // Option B: Full UUID v4 (e.g., "123e4567-e89b-12d3-a456-426614174000")
+    // var randomID = crypto.randomUUID();
+
+    // Store the ID globally so MinnoJS passes it back to Qualtrics
+    API.addGlobal({
+        participantID: randomID
+    });
+
+    // ... rest of your MinnoJS script ...
+});
     API.addSequence([
         { type: 'isTouch' }, //Use Minno's internal touch detection mechanism. 
         
