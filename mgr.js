@@ -135,7 +135,7 @@ define(['pipAPI'], function(pipAPI) {
         participantID: randomID
     });
 
-    // ... rest of your MinnoJS script ...
+    // ... rest of your MinnoJS script ....
 });
     API.addSequence([
         { type: 'isTouch' }, //Use Minno's internal touch detection mechanism. 
