@@ -66,15 +66,8 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Bug hunting 8 gemini',
+            title: 'Implicit Gender IAT',
             header: 'Welcome'
-        }],
-		ineligible: [{
-            inherit: 'instructions',
-            name: 'ineligible',
-            templateUrl: 'Ineligible.jst',
-            title: 'Sorry',
-            header: 'Sorry'
         }],
 
         Geniat_instructions: [{
@@ -97,11 +90,15 @@ define(['managerAPI',
             name: 'Geniat',
             scriptUrl: 'Geniat.js'
         }],
-        consent: [{
-            type: 'quest',
-            name: 'consent',
-            scriptUrl: 'Consent.js'
-        }],
+	 inelligible: [{
+            type: 'message',
+            name: 'lastpage',
+            templateUrl: 'ineligible.jst',
+            title: 'End',
+            //Uncomment the following if you want to end the study here.
+            //last:true, 
+            header: 'You have completed the IAT portion of the study'
+        }], 
 
         lastpage: [{
             type: 'message',
@@ -167,7 +164,8 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
-		{mixer:'random',
+        {
+            mixer:'wrapper',
             data:[
                 {
                     mixer: 'wrapper',
@@ -182,12 +180,8 @@ define(['managerAPI',
         },
 		{inherit: 'uploading'},
         {inherit: 'lastpage'},
-        {inherit: 'redirect'}],
-			elseData: [
-				{inherit: 'ineligible'},
-				{inherit:'redirect'}
-			]
-    });
+        {inherit: 'redirect'}
+    ]);
 
     return API.script;
 });
