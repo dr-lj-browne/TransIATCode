@@ -66,7 +66,7 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Bug hunting 4',
+            title: 'Bug hunting 5',
             header: 'Welcome'
         }],
 		ineligible: [{
@@ -171,7 +171,7 @@ define(['managerAPI',
 		{mixer: 'branch',
 		 	conditions:[    { 
       		compare: 'current.conyn',
-      		to: 1
+      		to: 
     			}],
 		 	data:[
 			{mixer:'random',
