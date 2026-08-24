@@ -66,7 +66,7 @@ define(['managerAPI',
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Bug hunting 6',
+            title: 'Bug hunting 7 gemini',
             header: 'Welcome'
         }],
 		ineligible: [{
@@ -169,10 +169,13 @@ define(['managerAPI',
         {inherit: 'intro'},
 		{inherit: 'consent'},
 		{mixer: 'branch',
-		 	conditions:[    { 
-      		compare: 'global.conyn',
-      		to: 1
-    			}],
+		 	conditions:[
+      	{ compare: 'global.conyn', to: 1 },
+        { compare: 'global.conyn', to: '1' },
+        // Fallback: check if it was stored inside the task's output object
+        { compare: 'global.consent.questions.conyn.response', to: 1 },
+        { compare: 'global.consent.questions.conyn.response', to: '1' }
+    			],
 		 	data:[
 			{mixer:'random',
             data:[
