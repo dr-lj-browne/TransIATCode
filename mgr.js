@@ -167,13 +167,7 @@ define(['managerAPI',
         
         
         {inherit: 'intro'},
-		{inherit: 'consent'},
-		{mixer: 'branch',
-		 	conditions: [
-    { compare: 'global.eligible', to: true }
-],
-		 	data:[
-			{mixer:'random',
+		{mixer:'random',
             data:[
                 {
                     mixer: 'wrapper',
@@ -193,7 +187,7 @@ define(['managerAPI',
 				{inherit: 'ineligible'},
 				{inherit:'redirect'}
 			]
-    }]);
+    });
 
     return API.script;
 });
