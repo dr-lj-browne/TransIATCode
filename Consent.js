@@ -1,119 +1,140 @@
 define(['questAPI'], function(Quest){
     let API = new Quest();
     let isTouch = API.getGlobal().$isTouch;
-	
+    
     /**
-	* Page prototype
-	*/
+    * Page prototype
+    */
     API.addPagesSet('basicPage',{
-        noSubmit:false, //Change to true if you don't want to show the submit button.
+        noSubmit: false,
         header: 'Questionnaire',
         decline: true,
         declineText: isTouch ? 'Decline' : 'Decline to Answer', 
-        autoFocus:true, 
-        progressBar:  'Page <%= pagesMeta.number %> out of 4'
+        autoFocus: true, 
+        progressBar: 'Page <%= pagesMeta.number %> out of 4'
     });
-	
+    
     /**
-	* Question prototypes
-	*/
+    * Question prototypes
+    */
     API.addQuestionsSet('basicQ',{
-        decline: 'true',
-        required : true, 		
+        decline: true,
+        required: true, 		
         errorMsg: {
             required: isTouch 
                 ? 'Please select an answer, or click \'Decline\'' 
                 : 'Please select an answer, or click \'Decline to Answer\''
         },
-        autoSubmit:'true',
-        numericValues:'true',
+        autoSubmit: true,
+        numericValues: true,
         help: '<%= pagesMeta.number < 4 %>',
         helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
     });
 
     API.addQuestionsSet('basicSelect',{
-        inherit :'basicQ',
+        inherit: 'basicQ',
         type: 'selectOne'
     });
-	
-	
+    
     API.addQuestionsSet('yesno',{
         inherit: 'basicSelect',
         answers: [
-
-            {text:'Yes', value:1},
-            {text:'No', value:0}
+            {text: 'Yes', value: 1},
+            {text: 'No', value: 0}
         ]
     });
 
-
-	
     /**
-	*Specific questions
-	*/	
-
+    * Specific questions
+    */	
     API.addQuestionsSet('conyn',{
-        inherit : 'yesno',
+        inherit: 'yesno',
         name: 'conyn',
         stem: 'Do you consent to the research?'
     });
 
     API.addQuestionsSet('ageyn',{
-        inherit : 'yesno',
+        inherit: 'yesno',
         name: 'ageyn',
         stem: 'Are you at least 18 years old?'
     });
+
     API.addQuestionsSet('usyn',{
-        inherit : 'yesno',
+        inherit: 'yesno',
         name: 'usyn',
         stem: 'Do you currently live in the United States?'
     });
-	    API.addQuestionsSet('transyn',{
-        inherit : 'yesno',
+
+    API.addQuestionsSet('transyn',{
+        inherit: 'yesno',
         name: 'transyn',
         stem: 'Are you transgender?'
     });
-API.addSettings('hooks', {
-    endPage: function(page) {
-        let currentQuestions = page.questions;
-        if (currentQuestions) {
-            currentQuestions.forEach(function(q) {
-                if (q.name && q.response !== undefined) {
-                    let globalData = {};
-                    globalData[q.name] = q.response;
-                    API.addGlobal(globalData);
-                }
-            });
+
+    API.addSettings('hooks', {
+        endPage: function(page) {
+            let currentQuestions = page.questions;
+            if (currentQuestions) {
+                currentQuestions.forEach(function(q) {
+                    if (q.name && q.response !== undefined) {
+                        let globalData = {};
+                        globalData[q.name] = q.response;
+                        API.addGlobal(globalData);
+                    }
+                });
+            }
         }
-    }
-});
+    });
+
     API.addSequence([
+        // Step 1: Ask Consent
         {
-            mixer : 'random', 
-            data : [
+            inherit: 'basicPage',
+            questions: { inherit: 'conyn' }
+        },
+
+        // Step 2: Branch based on Consent response immediately
+        {
+            mixer: 'branch',
+            conditions: [
+                // Checks if response was NOT 1 (Yes)
+                { compare: 'current.questions.conyn.response', to: 1, negate: true }
+            ],
+            data: [
                 {
-                    mixer : 'random', 
-                    wrapper:true, 
-                    data : [
-                        {
-                            inherit:'basicPage', 
-                            questions: {inherit:'conyn'}
-                        },
-                        {
-                            inherit:'basicPage', 
-                            questions: {inherit:'ageyn'}							
-                        },
-						{
-                            inherit:'basicPage', 
-                            questions: {inherit:'transyn'}							
-                        },
-						{
-                            inherit:'basicPage', 
-                            questions: {inherit:'usyn'}							
-                        }
-                    ]
+                    type: 'custom',
+                    fn: function() {
+                        API.addGlobal({ eligible: false });
+                    }
+                },
+                {
+                    script: {
+                        end: true
+                    }
                 }
             ]
+        },
+
+        // Step 3: Remaining screening questions
+        {
+            inherit: 'basicPage',
+            questions: { inherit: 'ageyn' }
+        },
+        {
+            inherit: 'basicPage',
+            questions: { inherit: 'transyn' }
+        },
+        {
+            inherit: 'basicPage',
+            questions: { inherit: 'usyn' }
+        },
+        
+        // Step 4: Set eligible flag if all preceding steps pass
+        {
+            type: 'custom',
+            fn: function() {
+                API.addGlobal({ eligible: true });
+            }
         }
     ]);
 
