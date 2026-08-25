@@ -122,7 +122,7 @@ define(['managerAPI',
         uploading: uploading_task({header: 'just a moment', body:'Please wait, sending data... '})
     });
 
-});
+
     API.addSequence([
         { type: 'isTouch' }, //Use Minno's internal touch detection mechanism. 
         
